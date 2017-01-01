@@ -166,6 +166,7 @@ net.ipv4.icmp_echo_ignore_broadcasts=1
 net.ipv4.conf.all.log_martians = 1
 net.ipv4.tcp_fin_timeout = 1
 net.ipv4.tcp_tw_recycle = 1
+net.ipv4.forward = 1
 kernel.shmmax = 1073741824
 net.ipv4.tcp_rmem = 4096 25165824 25165824
 net.core.rmem_max = 25165824
