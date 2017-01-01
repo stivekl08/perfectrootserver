@@ -61,10 +61,6 @@ source sources/script/system.sh
 				done
 		fi
 	done
-		if [ $stopit == "stop" ]; then
-			exit 1
-		fi
-	
 if [ ${USE_VSFTPD} == '1' ]; then
 	#Check for username
         	if [[ "$FTP_USERNAME" =~ [[:upper:]] ]]; then
