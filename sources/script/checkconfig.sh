@@ -67,12 +67,9 @@ source sources/script/system.sh
 	
 if [ ${USE_VSFTPD} == '1' ]; then
 	#Check for username
-        	if [[ "$FTP_USERNAME" =~ [^a-z] ]]; then
-		while [[ "$FTP_USERNAME" =~ [^a-z] ]]; do
-			echo "Your Username $FTP_USERNAME is not valid! Please user only lower case letters."
+        	if [[ "$FTP_USERNAME" =~ [[:upper:]] ]]; then
 			echo "${error} Your Username $FTP_USERNAME is not valid. Please use only lower case letters and try again:" | awk '{ print strftime("[%H:%M:%S] |"), $0 }'
 				read FTP_USERNAME
-		done
 		fi
 		echo "${ok} Great! Your FTP Username is: $FTP_USERNAME" | awk '{ print strftime("[%H:%M:%S] |"), $0 }'
 		#Now insert new FTP Username into config to be able in script
