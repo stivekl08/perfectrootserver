@@ -174,9 +174,9 @@ if [ ${CLOUDFLARE} == '0' ] && [ ${USE_VALID_SSL} == '1' ]; then
 	git clone https://github.com/letsencrypt/letsencrypt ~/sources/letsencrypt -q
 	cd ~/sources/letsencrypt
 	if [ ${USE_MAILSERVER} == '1' ]; then
-		./letsencrypt-auto certonly --agree-tos --renew-by-default --non-interactive --standalone --email ${SSLMAIL} --rsa-key-size ${RSA_KEY_SIZE} -d ${MYDOMAIN} -d www.${MYDOMAIN} -d mail.${MYDOMAIN} -d autodiscover.${MYDOMAIN} -d autoconfig.${MYDOMAIN} -d dav.${MYDOMAIN} >>/root/stderror.log 2>&1  >> /root/stdout.log
+		certbot certonly --agree-tos --renew-by-default --non-interactive --standalone --email ${SSLMAIL} --rsa-key-size ${RSA_KEY_SIZE} -d ${MYDOMAIN} -d www.${MYDOMAIN} -d mail.${MYDOMAIN} -d autodiscover.${MYDOMAIN} -d autoconfig.${MYDOMAIN} -d dav.${MYDOMAIN} >>/root/stderror.log 2>&1  >> /root/stdout.log
 	else
-		./letsencrypt-auto certonly --agree-tos --renew-by-default --non-interactive --standalone --email ${SSLMAIL} --rsa-key-size ${RSA_KEY_SIZE} -d ${MYDOMAIN} -d www.${MYDOMAIN}>> /root/stderror.log 2>&1  >> /root/stdout.log
+		certbot certonly --agree-tos --renew-by-default --non-interactive --standalone --email ${SSLMAIL} --rsa-key-size ${RSA_KEY_SIZE} -d ${MYDOMAIN} -d www.${MYDOMAIN}>> /root/stderror.log 2>&1  >> /root/stdout.log
 	fi
 	ln -s /etc/letsencrypt/live/${MYDOMAIN}/fullchain.pem /etc/nginx/ssl/${MYDOMAIN}.pem
 	ln -s /etc/letsencrypt/live/${MYDOMAIN}/privkey.pem /etc/nginx/ssl/${MYDOMAIN}.key.pem
