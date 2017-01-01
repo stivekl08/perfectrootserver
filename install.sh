@@ -25,9 +25,9 @@ source sources/addons/minecraft.sh
 source sources/addons/vsftpd.sh
 source sources/addons/openvpn.sh
 
-#source sources/addons/disablerootlogin.sh
-#source sources/addons/addnewsite.sh
-#source sources/addons/addnewmysqluser.sh
+source sources/addons/disablerootlogin.sh
+source sources/addons/addnewsite.sh
+source sources/addons/addnewmysqluser.sh
 
 createpw
 checksystem
