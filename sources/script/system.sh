@@ -63,7 +63,8 @@ END
 cat > /etc/apt/sources.list.d/dovcot.list <<END
 # Doveocot
 deb http://xi.rename-it.nl/debian/ stable-auto/dovecot-2.3 main
-END
+ENDwget https://www.dotdeb.org/dotdeb.gpg
+apt-key add dotdeb.gpg
 apt-get update -y
 apt-get -y --force-yes install certbot -t jessie-backports >>/root/stderror.log 2>&1  >> /root/stdout.log
 wget -O ~/sources/dovecot.key http://xi.rename-it.nl/debian/archive.key >>/root/stderror.log 2>&1  >> /root/stdout.log && apt-key add ~/sources/dovecot.key >>/root/stderror.log 2>&1  >> /root/stdout.log
