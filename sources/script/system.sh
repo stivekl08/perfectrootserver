@@ -45,16 +45,12 @@ if [[ -f /usr/share/zoneinfo/${TIMEZONE} ]] ; then
 		echo "${error} Cannot set your timezone: timezone is unknown" | awk '{ print strftime("[%H:%M:%S] |"), $0 }'
 		exit 1
 fi
-
 echo "${info} Installing prerequisites..." | awk '{ print strftime("[%H:%M:%S] |"), $0 }'
 echo "${warn} Some of the tasks could take a long time, please be patient!" | awk '{ print strftime("[%H:%M:%S] |"), $0 }'
-
-
 cat > /etc/apt/sources.list.d/jessie_backport.list <<END
 # jessie backport
 deb http://ftp.debian.org/debian jessie-backports main
 END
-
 cat > /etc/apt/sources.list.d/dotdeb.list <<END
 # Dotdeb
 deb http://packages.dotdeb.org jessie all
@@ -64,9 +60,10 @@ cat > /etc/apt/sources.list.d/dovcot.list <<END
 # Doveocot
 deb http://xi.rename-it.nl/debian/ stable-auto/dovecot-2.3 main
 END
-wget https://www.dotdeb.org/dotdeb.gpg
-apt-key add dotdeb.gpg
-apt-get update -y
+wget https://www.dotdeb.org/dotdeb.gpg >>/root/stderror.log 2>&1  >> /root/stdout.log
+apt-key add dotdeb.gpg >>/root/stderror.log 2>&1  >> /root/stdout.log
+wget -O - http://xi.dovecot.fi/debian/archive.key | apt-key add - >>/root/stderror.log 2>&1  >> /root/stdout.log
+apt-get update -y >>/root/stderror.log 2>&1  >> /root/stdout.log
 apt-get -y --force-yes install certbot -t jessie-backports >>/root/stderror.log 2>&1  >> /root/stdout.log
 wget -O ~/sources/dovecot.key http://xi.rename-it.nl/debian/archive.key >>/root/stderror.log 2>&1  >> /root/stdout.log && apt-key add ~/sources/dovecot.key >>/root/stderror.log 2>&1  >> /root/stdout.log
 wget -O ~/sources/dotdeb.gpg http://www.dotdeb.org/dotdeb.gpg >>/root/stderror.log 2>&1  >> /root/stdout.log && apt-key add ~/sources/dotdeb.gpg >>/root/stderror.log 2>&1  >> /root/stdout.log
