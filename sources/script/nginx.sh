@@ -191,7 +191,7 @@ HPKP1=$(openssl x509 -pubkey < /etc/nginx/ssl/${MYDOMAIN}.pem | openssl pkey -pu
 HPKP2=$(openssl rand -base64 32)
 
 echo "${info} Creating strong Diffie-Hellman parameters, please wait..." | awk '{ print strftime("[%H:%M:%S] |"), $0 }'
-openssl dhparam -out /etc/nginx/ssl/dh.pem ${RSA_KEY_SIZE} >>/root/stderror.log 2>&1  >> /root/stdout.log
+openssl dhparam -out /etc/nginx/ssl/dh.pem 2048 >>/root/stderror.log 2>&1  >> /root/stdout.log
 
 # Create server config
 rm -rf /etc/nginx/sites-available/${MYDOMAIN}.conf
