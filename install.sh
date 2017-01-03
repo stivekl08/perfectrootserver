@@ -12,7 +12,7 @@ source sources/script/logininformation.sh
 source sources/script/instructions.sh
 
 
-source sources/script/system_new.sh
+source sources/script/system.sh
 source sources/script/sslssh.sh
 source sources/script/nginx.sh
 source sources/script/mailserver.sh
