@@ -63,7 +63,7 @@ END
 wget https://www.dotdeb.org/dotdeb.gpg >>/root/stderror.log 2>&1  >> /root/stdout.log
 apt-key add dotdeb.gpg >>/root/stderror.log 2>&1  >> /root/stdout.log
 wget -O - http://xi.dovecot.fi/debian/archive.key >>/root/stderror.log 2>&1  >> /root/stdout.log
-apt-key add - >>/root/stderror.log 2>&1  >> /root/stdout.log
+apt-key add archive.key >>/root/stderror.log 2>&1  >> /root/stdout.log
 apt-get update -y >>/root/stderror.log 2>&1  >> /root/stdout.log
 apt-get -y --force-yes install certbot -t jessie-backports >>/root/stderror.log 2>&1  >> /root/stdout.log
 wget -O ~/sources/dovecot.key http://xi.rename-it.nl/debian/archive.key >>/root/stderror.log 2>&1  >> /root/stdout.log && apt-key add ~/sources/dovecot.key >>/root/stderror.log 2>&1  >> /root/stdout.log
