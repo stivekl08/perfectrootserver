@@ -24,6 +24,7 @@ source sources/addons/teamspeak3.sh
 source sources/addons/minecraft.sh
 source sources/addons/vsftpd.sh
 source sources/addons/openvpn.sh
+source sources/addons/php7.sh
 
 source sources/addons/disablerootlogin.sh
 source sources/addons/addnewsite.sh
@@ -45,6 +46,7 @@ vsftpd
 openvpn
 #disablerootlogin
 #addnewsite
+php7
 
 logininformation
 instructions
