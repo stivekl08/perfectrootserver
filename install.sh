@@ -28,7 +28,7 @@ source sources/addons/php7.sh
 
 source sources/addons/disablerootlogin.sh
 source sources/addons/addnewsite.sh
-#source sources/addons/addnewmysqluser.sh
+source sources/addons/addnewmysqluser.sh
 
 createpw
 checksystem
@@ -44,8 +44,8 @@ teamspeak3
 minecraft
 vsftpd
 openvpn
-#disablerootlogin
-#addnewsite
+disablerootlogin
+addnewsite
 php7
 
 logininformation
