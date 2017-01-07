@@ -174,8 +174,8 @@ if [ ${CLOUDFLARE} == '0' ] && [ ${USE_VALID_SSL} == '1' ]; then
 	git clone https://github.com/letsencrypt/letsencrypt ~/sources/letsencrypt -q
 	cd ~/sources/letsencrypt
 	if [ ${USE_MAILSERVER} == '1' ]; then
-		certbot certonly --agree-tos --renew-by-default --non-interactive --standalone --email ${SSLMAIL} --rsa-key-size 2048 -d ${MYDOMAIN} -d www.${MYDOMAIN} -d mail.${MYDOMAIN} -d autodiscover.${MYDOMAIN} -d autoconfig.${MYDOMAIN} -d dav.${MYDOMAIN} -d typo3.${MYDOMAIN} >>/root/stderror.log 2>&1  >> /root/stdout.log
-	else
+                certbot certonly --agree-tos --renew-by-default --non-interactive --standalone --email ${SSLMAIL} --rsa-key-size 2048 -d ${MYDOMAIN} -d www.${MYDOMAIN} -d mail.${MYDOMAIN} -d autodiscover.${MYDOMAIN} -d autoconfig.${MYDOMAIN} -d dav.${MYDOMAIN} -d typo3.${MYDOMAIN} -d bacintern.kladler.at -d bewerbung.kladler.at -d bewerbungsgen.kladler.at -d brieffreunde.kladler.at -d fotos.kladler.at -d libertine.kladler.at -d logbook.kladler.at -d logwatch.kladler.at -d mail2.kladler.at -d mailadmin.kladler.at -d mailman.kladler.at -d mg-bac.kladler.at -d nagios.kladler.at -d nconf.kladler.at -d owncloud.kladler.at -d phpmyadmin.kladler.at -d piwik.kladler.at -d smtp.kladler.at -d squirrelmail.kladler.at -d tafel.kladler.at -d teamspeak.kladler.at -d typo3.kladler.at -d urlaub.kladler.at>>/root/stderror.log 2>&1  >> /root/stdout.log
+else
 		certbot certonly --agree-tos --renew-by-default --non-interactive --standalone --email ${SSLMAIL} --rsa-key-size 2048 -d ${MYDOMAIN} -d www.${MYDOMAIN} -d typo3.${MYDOMAIN} >> /root/stderror.log 2>&1  >> /root/stdout.log
 	fi
 	ln -s /etc/letsencrypt/live/${MYDOMAIN}/fullchain.pem /etc/nginx/ssl/${MYDOMAIN}.pem
